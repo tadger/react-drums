@@ -1,0 +1,93 @@
+// red, orange, yellow, white
+/*
+@sw-color-1: #be3b3b;
+@sw-color-2: #cf7236;
+@sw-color-3: #d5bc60;
+@sw-color-4: #eae9d2;
+@sw-indicator-off: #900;
+*/
+
+// alernate color
+@sw-color-1: #21212f;
+@sw-color-2: lighten(spin(@sw-color-1, 30%), 5%);
+@sw-color-3: lighten(spin(@sw-color-2, 30%), 15%);
+@sw-color-4: lighten(spin(@sw-color-3, 30%), 25%);
+@sw-indicator-off: #7b357b;
+
+
+@sw-indicator-on: lighten(@sw-indicator-off, 35%);
+@sw-indicator-border-off: darken(@sw-indicator-off, 15%);
+@sw-indicator-border-on: lighten(@sw-indicator-border-off, 20%);
+
+.no-select {
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+.switch {
+  .no-select;
+  cursor: pointer;
+  float: left;
+  height: 50px;
+  width: 30px;
+  border: 1px solid #222;
+  border-radius: 3px;
+  text-align: center;
+  transition: background-color .1s;
+
+  + .switch {
+    margin-left: 8px;
+  }
+}
+
+.indicator {
+  display: block;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  margin: 8% auto 0;
+  border-width: 1px;
+  border-style: solid;
+}
+
+.off > div {
+  .indicator;
+  background-color: @sw-indicator-off;
+  border-color: @sw-indicator-border-off;
+  transition: background-color 1s;
+}
+
+.on > div {
+  .indicator;
+  background-color: @sw-indicator-on;
+  border-color: @sw-indicator-border-on;
+}
+
+.switch > div:before {
+  content: '';
+  position: absolute;
+  display: block;
+  background-color: rgba(255, 255, 255, .1);
+  height: 6px;
+  width: 28px;
+  margin-left: -10px;
+  margin-top: 11px;
+}
+
+.sw-color-1 {
+  background-color: @sw-color-1;
+}
+
+.sw-color-2 {
+  background-color: @sw-color-2;
+}
+
+.sw-color-3 {
+  background-color: @sw-color-3;
+}
+
+.sw-color-4 {
+  background-color: @sw-color-4;
+}

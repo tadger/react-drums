@@ -1,0 +1,33 @@
+export default {
+  sounds: [
+    'cabasa',
+    'chh',
+    'chhl',
+    'chhs',
+    'clap',
+    'conga',
+    'congah',
+    'congahh',
+    'congal',
+    'congall',
+    'congalll',
+    'cowb',
+    'crash',
+    'kick',
+    'kickme',
+    'ohh',
+    'ride',
+    'sd',
+    'sdh',
+    'sdl',
+    'sst',
+    'ssth',
+    'sstl',
+    'tamb',
+    'tom',
+    'tomh',
+    'tomhh',
+    'toml',
+    'tomll'
+  ]
+};
