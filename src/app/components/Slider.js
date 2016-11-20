@@ -1,12 +1,19 @@
-import React, { Component } from 'react';
+import React, { Component, PropTypes } from 'react'
 
-const Slider = ({ value, min, max, step, handleChange }) => (
+const Slider = ({ min, max, step, onChange }) => (
   <input type="range"
     defaultValue="100"
     min={min}
     max={max}
     step={step}
-    onChange={handleChange} />
-);
+    onChange={onChange} />
+)
 
-export default Slider;
+Slider.propTypes = {
+  min: PropTypes.number.isRequired,
+  max: PropTypes.number.isRequired,
+  step: PropTypes.number.isRequired,
+  onChange: PropTypes.func.isRequired
+}
+
+export default Slider

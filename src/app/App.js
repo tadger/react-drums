@@ -1,26 +1,22 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
+import React from 'react'
+import ReactDOM from 'react-dom'
 
-import './index.less';
+import './index.less'
 
-import DrumMachine from './components/DrumMachine';
+import DrumMachine from './components/DrumMachine'
+
+const BEATS = 4
+const BARS = 4
 
 class App {
-
-  constructor(options) {
-    this.state = options.state;
-  }
-
-
   render(element) {
-    var appRootElement = <DrumMachine beats={4} bars={4} state={this.state} />;
 
     if (element) {
-      ReactDOM.render(appRootElement, element);
-      return;
+      ReactDOM.render(<DrumMachine beats={BEATS} bars={BARS} />, element)
+      return
     }
   }
 
 }
 
-export default App;
+export default App

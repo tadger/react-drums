@@ -1,5 +1,5 @@
 export default {
-  sounds: [
+  samples: [
     'cabasa',
     'chh',
     'chhl',

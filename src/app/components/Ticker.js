@@ -1,14 +1,19 @@
-import React, { Component } from 'react';
-import _ from 'lodash';
+import React, { Component, PropTypes } from 'react'
+import { range } from 'lodash'
 
-import '../css/ticker.less';
+import '../css/ticker.less'
 
 const Ticker = ({ tickCount, index }) => {
-  var ticks = _.range(tickCount).map(v => {
-    return <li key={v} className={v === index ? 'on' : ''}></li>;
-  });
+  const ticks = range(tickCount).map(tick => (
+    <li key={tick} className={tick === index ? 'on' : ''}></li>
+  ))
 
-  return <ul className="ticker">{ticks}</ul>;
-};
+  return <ul className="ticker">{ticks}</ul>
+}
 
-export default Ticker;
+Ticker.propTypes = {
+  tickCount: PropTypes.number.isRequired,
+  index: PropTypes.number.isRequired
+}
+
+export default Ticker

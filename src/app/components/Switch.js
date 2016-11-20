@@ -1,58 +1,57 @@
-import React, { Component } from 'react';
-import classNames from 'classnames';
+import React, { Component, PropTypes } from 'react'
+import classNames from 'classnames'
 
-import '../css/switch.less';
+import '../css/switch.less'
 
 class Switch extends Component {
+  state = {
+    isActive: false
+  }
 
   constructor(props) {
-    super(props);
-    this.state = {
-      active: false
-    };
+    super(props)
   }
 
-
-  handleClick() {
-    this.toggle(this.props.callback);
-  }
-
-
-  toggle(callback) {
-    this.setState({ active: !this.state.active }, () => {
+  toggle = callback => {
+    this.setState({ isActive: !this.state.isActive }, () => {
       callback({
         index: this.props.index,
         bar: this.props.bar,
-        active: this.state.active
-      });
-    });
+        isActive: this.state.isActive
+      })
+    })
   }
 
 
   render() {
-    var switchClass = classNames({
+    const { isActive } = this.state
+    const { bar, onClick } = this.props
+
+    const switchClass = classNames({
       'switch': true,
-      'on': this.state.active,
-      'off': !this.state.active,
-      'sw-color-1': this.props.bar === 0,
-      'sw-color-2': this.props.bar === 1,
-      'sw-color-3': this.props.bar === 2,
-      'sw-color-4': this.props.bar === 3
-    });
+      'on': isActive,
+      'off': !isActive,
+      'sw-color-1': bar === 0,
+      'sw-color-2': bar === 1,
+      'sw-color-3': bar === 2,
+      'sw-color-4': bar === 3
+    })
 
     return (
-      <div className={switchClass} onClick={this.handleClick.bind(this)}>
+      <div
+        className={switchClass}
+        onClick={() => { this.toggle(onClick) }}>
         <div></div>
       </div>
-    );
+    )
   }
 
 }
 
 Switch.propTypes = {
-  index: React.PropTypes.number.isRequired,
-  bar: React.PropTypes.number.isRequired,
-  callback: React.PropTypes.func
-};
+  index: PropTypes.number.isRequired,
+  bar: PropTypes.number.isRequired,
+  onClick: PropTypes.func.isRequired
+}
 
-export default Switch;
+export default Switch

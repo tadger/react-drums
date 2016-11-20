@@ -1,13 +1,20 @@
-import React, { Component } from 'react';
+import React, { Component, PropTypes } from 'react'
 
-import '../css/toggle.less';
+import '../css/toggle.less'
 
-const Toggle = ({ id, callback }) => (
+const Toggle = ({ id, onClick }) => (
   <div className={id + '-class'}>
-    <input id={id} className="cmn-toggle cmn-toggle-round-flat"
-      onChange={callback} type="checkbox" />
+    <input id={id}
+      className="cmn-toggle cmn-toggle-round-flat"
+      onChange={onClick}
+      type="checkbox" />
     <label htmlFor={id}></label>
   </div>
-);
+)
 
-export default Toggle;
+Toggle.propTypes = {
+  id: PropTypes.string.isRequired,
+  onClick: PropTypes.func.isRequired
+}
+
+export default Toggle

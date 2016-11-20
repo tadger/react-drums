@@ -39,7 +39,7 @@ module.exports = {
         test: /\.jsx?$/,
         include: path.join(__dirname, 'src'),
         exclude: /(node_modules|bower_components)/,
-        loaders: ['react-hot', 'babel']
+        loaders: ['react-hot-loader/webpack', 'babel']
       },
       {
         test: /\.html$/,

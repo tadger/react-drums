@@ -1,9 +1,6 @@
-import App from './App';
+import App from './App'
 
-var rootElement = document.getElementById('root');
+const rootElement = document.getElementById('root')
+const app = new App()
 
-var app = new App({
-  state: null
-});
-
-app.render(rootElement);
+app.render(rootElement)
